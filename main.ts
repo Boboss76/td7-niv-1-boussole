@@ -1,4 +1,27 @@
+basic.showLeds(`
+    # . . . #
+    . # . # .
+    . . # . .
+    . # . # .
+    # . . . #
+    `)
 input.calibrateCompass()
 basic.forever(function () {
-    basic.showNumber(input.compassHeading())
+    if (input.compassHeading() <= 90 || input.compassHeading() >= 270) {
+        basic.showLeds(`
+            # . . . #
+            # # . . #
+            # . # . #
+            # . . # #
+            # . . . #
+            `)
+    } else {
+        basic.showLeds(`
+            . # # # .
+            # . . . .
+            . # # . .
+            . . . # .
+            # # # . .
+            `)
+    }
 })
